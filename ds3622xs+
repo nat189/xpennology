@@ -1,0 +1,24 @@
+User: tc
+Password: P@ssw0rd
+
+##############check hardwar ############
+ sudo lspci -vmm
+
+#############ds3622xs+##########
+
+./rploader.sh update now
+./rploader.sh fullupgrade now
+./rploader.sh serialgen DS3622xs+ now
+./rploader.sh satamap now
+./rploader.sh identifyusb now
+./rploader.sh build broadwellnk-7.0.1-42218
+./rploader.sh clean now 
+rm -rf"/mnt/sdb3/auxfiles/"*
+cd /mnt/sdb3/auxfiles/
+https://global.download.synology.com/download/DSM/release/7.1/42661-1/DSM_DS3622xs%2B_42661.pat
+
+## rename ds3622xs-42218.pat to ds3622xs-42661.pat ############
+cd
+./rploader.sh build broadwellnk-7.1.0-42661
+./rploader.sh clean now; rm -rf /mnt/sdb3/auxfiles; rm -rf /home/tc/custom-module; ./rploader.sh backup now;
+sudo reboot
