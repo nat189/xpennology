@@ -1,5 +1,5 @@
 User: tc
-Password: P@ssw0rd+
+Password: P@ssw0rd
 
 ##############check hardwar ############
  sudo lspci -vmm
