@@ -1,5 +1,5 @@
 User: tc
-Password: P@ssw0rd
+Password: P@ssw0rd+
 
 ##############check hardwar ############
  sudo lspci -vmm
@@ -22,3 +22,24 @@ cd
 ./rploader.sh build broadwellnk-7.1.0-42661
 ./rploader.sh clean now; rm -rf /mnt/sdb3/auxfiles; rm -rf /home/tc/custom-module; ./rploader.sh backup now;
 sudo reboot
+
+
+############################################# DS920+  
+./rploader.sh update now
+./rploader.sh fullupgrade now
+./rploader.sh serialgen DS920+
+./rploader.sh satamap now
+./rploader.sh identifyusb now
+./rploader.sh build geminilake-7.1.0-42661
+
+
+##############################################
+./rploader.sh update
+
+./rploader.sh fullupgrade
+
+./rploader.sh backup
+
+./rploader.sh postupdate apollolake-7.1.0-42661
+
+exitcheck.sh reboot
