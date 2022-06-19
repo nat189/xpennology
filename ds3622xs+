@@ -40,6 +40,6 @@ sudo reboot
 
 ./rploader.sh backup
 
-./rploader.sh postupdate apollolake-7.1.0-42661
+./rploader.sh postupdate geminilake-7.1.0-42661
 
 exitcheck.sh reboot
