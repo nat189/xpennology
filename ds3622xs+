@@ -24,7 +24,7 @@ cd
 sudo reboot
 
 
-############################################# DS920+  
+############################################# DS920+  update pat
 ./rploader.sh update now
 ./rploader.sh fullupgrade now
 ./rploader.sh serialgen DS920+
