@@ -1,0 +1,14 @@
+[Unit]
+Description=mergerfs mount
+After=network-online.target rclone.service
+Wants=network-online.target rclone.service
+
+[Service]
+Type=forking
+ExecStart=/usr/bin/mergerfs /volume3/store/local=RW:/volume1/docker/gdrive=RO:/volume1/docker/poster=RO /volume1/docker/media -o use_ino,allow_other,func.getattr=newest,category.action=all,category.create=ff,cache.files=auto-full,dropcacheonclose=true,minfreespace=20G,fsname=mergerfs
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

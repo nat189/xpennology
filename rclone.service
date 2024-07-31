@@ -1,0 +1,32 @@
+[Unit]
+Description=anime Service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=notify
+Environment=RCLONE_CONFIG=/volume1/Rclone/rclone.conf
+KillMode=none
+RestartSec=5
+ExecStart=/usr/bin/rclone mount all-drive: /volume1/docker/gdrive \
+--allow-other \
+--dir-cache-time 1000h \
+--log-level INFO \
+--log-file /tmp/rclone-mount.log \
+--umask 000 \
+--uid 1000 \
+--gid 1000 \
+--user-agent root \
+--cache-dir=/tmp/ramdisk \
+--devname beepro \
+--vfs-cache-mode full \
+--vfs-cache-max-size 2G \
+--vfs-cache-poll-interval 20s \
+--vfs-cache-max-age 0 \
+--vfs-fast-fingerprint \
+
+ExecStop=/bin/fusermount -uzq /volume1/docker/gdrive
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
